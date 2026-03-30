@@ -149,8 +149,7 @@ def _fetch_block_configuration_fields(
     except ValueError:
         pass
     except RuntimeError as exc:
-        _LOG.debug("describe_trigger failed for %s: %s", block_name, exc)
-        return None
+        _LOG.debug("describe_trigger failed for %s (will try component): %s", block_name, exc)
 
     try:
         data = client.describe_component(block_name)
